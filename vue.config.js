@@ -44,7 +44,12 @@ module.exports = {
                         .end()
                     .use('vue-template')
                         .loader('vue-template-loader')
-                        .options({scoped: true})
+                        .options({
+                            scoped: true,
+                            transformAssetUrls: {
+                                img: 'src'
+                            }
+                        })
                         .end()
                     .use('pug-plain')
                         .loader('pug-plain-loader')
