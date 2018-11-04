@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+    // TODO: Transform these configs into the webpack-chain format
     pages: {
         index: {
             entry: "./src/main.ts",
@@ -8,7 +9,7 @@ module.exports = {
         }
     },
     configureWebpack: {
-        // Real devs use sourcemaps and breakpoints
+        // Enable use sourcemaps and breakpoints
         devtool: 'source-map',
         resolve: {
             alias: {
@@ -23,14 +24,12 @@ module.exports = {
         }
     },
     chainWebpack: webpackConfig => {
-        // Remove default configuration for pug/html
+        // Remove default configuration for pug
         webpackConfig.module.rules.delete('pug')
-        // webpackConfig.module.rules.get('scss').oneOfs.delete('normal')
 
         webpackConfig.module
             .rule('pug')
                 .test(/\.pug$/)
-        
                 // Single file components
                 .oneOf('vue-loader')
                     .resourceQuery(/^\?vue/)
