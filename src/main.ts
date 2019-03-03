@@ -1,11 +1,10 @@
 import Vue from 'vue'
-import store from '@/store'
-import App from '@components/app/app.ts'
-import '@styles/general.scss'
-
-Vue.config.productionTip = false
+import App from './components/app'
+import './style.scss'
 
 new Vue({
-  store,
-  render: (h) => h(App),
-}).$mount('#app')
+  el: '#app',
+  render (h) {
+    return h(App)
+  }
+})

@@ -1,16 +1,12 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import View from './app-template.pug?style=./app-style.scss'
+import Template from './app.pug?style=./app.scss'
 
-@View
+/**
+ * The Decorators combines your class with the render function build from your imported template
+ */
+
+@Template
 @Component
 export default class App extends Vue {
-    public someVar: number = 0
-
-    public get someVarNicelyFormatted(): string {
-        return `🌟${this.someVar}🌟`
-    }
-
-    public addOne(): void {
-        this.someVar++
-    }
+  @Prop({ default: 'With TypeScript, Pug and SCSS' }) readonly message!: string
 }
