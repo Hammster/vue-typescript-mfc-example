@@ -1,5 +1,5 @@
 {
-  "name": "vue-mfc-template",
+  "name": "vue-mfc-boilerplate",
   "version": "1.0.0",
   "description": "A boilerplate for a Vue.js Multi Component Project",
   "main": "index.js",
